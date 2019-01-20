@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN"
+"http://www.w3.org/TR/html40/Strict.dtd">
+
+<HTML>
+
+  <HEAD>
+    <TITLE> Lab 8: The Dining Philosopher's Problem </TITLE>
+  </HEAD>
+
+<BODY>
+
+<TABLE width=750px cellpadding="10" cellspacing="10" border="0" bgcolor=white>
+  <TR align=left>
+    <TD height="40" bgcolor="#CCCCCC" valign=middle colspan=2>
+	  <font size="+2" color="black">&nbsp;&nbsp; <b> The Dining Philosopher's Problem </b></font>
+    </TD>
+  </TR>
+  <TR>
+    <TD colspan=2>
+      <FONT size="+1" color="black">
+		In this lab, we consider an instance of the dining philosopher's
+		problem implemented using PThreads. We propose and implement two
+		solutions to this problem using the synchronization mechnanisms we have
+		discussed in previous labs.  
+      <p>
+	Issues addressed by this lab include:
+	<ul>
+	  <li> Practice reading code using Pthreads </li>
+	  <li> Practice using Pthread mutexes </li>
+	  <li> Practice using Pthread condition variables </li>
+	  <li> Practice analyzing concurrency control problems </li>
+	</ul>
+      </p>
+		<B>Submission Due: Wednesday 4/9 or Friday 4/11</B></FONT> 
+
+  <TR>
+    <TD height="40" bgcolor="#CCCCCC" valign=middle colspan=2>
+      <FONT size="5" face="helvetica" color="black">
+	LAB MATERIALS
+      </FONT>	  
+    </TD>
+  </TR>
+    <TD colspan=2>
+      <OL type="2">
+		<LI> 
+		<A href="DiningPhilosophers.pdf">Slides</A>
+		<LI>
+		<A href="eecs678-pthreads_dp-lab.tar.gz">Starter Directory</A>
+    </TD>
+  </TR>
+  <TR>
+    <TD height="40" bgcolor="#CCCCCC" valign=middle colspan=2>
+      <FONT size="5" face="helvetica" color="black">
+	LAB ASSIGNMENT
+      </FONT>	  
+	</TD>
+  </TR>
+    <TD colspan=2>
+	Modify the starter code to prevent deadlock using two
+	methods: (1) asymmetric locking order in different
+	philosophers and (2) use of a Pthreads condition variable to
+	simulate the presence of a waiter that will give both or
+	neither of the chopsticks to a philosopher in an atomic
+	operation.
+  <TR>
+    <TD height="40" bgcolor="#CCCCCC" valign=middle colspan=2>
+      <FONT size="5" face="helvetica" color="black">
+  WHAT TO HAND IN
+      </FONT>
+	</TD>
+  </TR>
+    <TD colspan=2>
+      <p>
+    After you have finished your implementation, you need to complete a short
+    report that answers the following questions:
+      </p>
+      <ol>
+	<li> 
+    Describe the asymmetric solution. How does the asymmetric solution
+    guarantee the philosophers never enter a deadlocked state?
+	</li>
+	<li>
+	  Does the asymmetric solution prevent starvation? Explain.
+	</li>
+	<li>
+    Describe the waiter's solution. How does the waiter's solution guarantee
+    the philosophers never enter a deadlocked state?
+	</li>
+	<li>
+	  Does the waiter's solution prevent starvation? Explain.
+	</li>
+	<li>
+	  Consider a scenario under a condition variable based
+	  solution where a philosopher determines at the time it frees
+	  its chopsticks that both chopsticks of another philosopher
+	  (Phil) it shares with are free, and so it sends the
+	  (possibly) waiting Phil a signal. Under what circumstances
+	  may Phil find that both of its chopsticks are NOT free when
+	  it checks?
+	</li>
+      </ol>
+
+    You also need to tar up your lab for submission. For this step, you should
+    use the 'tar' target included in the lab's Makefile. Change the STUDENT_ID
+    variable in the Makefile to your student ID and type:
+	  <PRE>
+    make tar
+	  </PRE>
+

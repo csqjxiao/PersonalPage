@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN"
+"http://www.w3.org/TR/html40/Strict.dtd">
+
+<HTML>
+
+  <HEAD>
+    <TITLE> Lab 4: The Unix Socket Protocol </TITLE>
+  </HEAD>
+
+<BODY>
+
+<TABLE width=750px cellpadding="10" cellspacing="10" border="0" bgcolor=white>
+  <TR align=left>
+    <TD height="40" bgcolor="#CCCCCC" valign=middle colspan=2>
+	  <font size="+2" color="black">&nbsp;&nbsp; <b> The Unix Socket Protocol </b></font>
+    </TD>
+  </TR>
+  <TR>
+    <TD colspan=2>
+      <FONT size="+1" color="black">
+	  In this lab, you will write a simple client / server program. You will be
+    required to submit the code you wrote and a report answering a few
+    questions. <BR>
+	</FONT> 
+
+  <TR>
+    <TD height="40" bgcolor="#CCCCCC" valign=middle colspan=2>
+      <FONT size="5" face="helvetica" color="black">
+	LAB MATERIALS
+      </FONT>	  
+    </TD>
+  </TR>
+    <TD colspan=2>
+      <OL type="2">
+		<LI> 
+		<A href="SocketsLab.pdf">Slides</A>
+		<LI>
+		<A href="eecs678-sockets-lab.tar.gz">Starter Directory</A>
+    </TD>
+  </TR>
+  <TR>
+    <TD height="40" bgcolor="#CCCCCC" valign=middle colspan=2>
+      <FONT size="5" face="helvetica" color="black">
+	LAB ASSIGNMENT
+      </FONT>	  
+	</TD>
+  </TR>
+    <TD colspan=2>
+	  Complete the client / server program in <font
+		face="arial">client.c</font> and <font face="arial">server.c</font>.
+	  This simple program should send the array of strings hard coded in the
+	  client process to the server process, which should convert them to
+	  uppercase, and send them back to the client. Use printf statements to
+	  narrate the flow of this program.<BR><BR>
+	  To build your program, open a terminal and type:
+<PRE>&nbsp;&nbsp;bash$ make</PRE>
+	  To test your program, first, run your server process:
+	  <PRE>&nbsp;&nbsp;bash$ ./server</PRE>
+	  Leave the server running, open another terminal, and run the client process: 
+	  <PRE>&nbsp;&nbsp;bash$ ./client</PRE>
+	  A correct implementation should give the following output. From the server process:
+	  <PRE>
+&nbsp;&nbsp;bash$ ./server 
+&nbsp;&nbsp;RECEIVED:
+&nbsp;&nbsp;this is the first string from the client
+&nbsp;&nbsp;SENDING:
+&nbsp;&nbsp;THIS IS THE FIRST STRING FROM THE CLIENT
+&nbsp;&nbsp;
+&nbsp;&nbsp;RECEIVED:
+&nbsp;&nbsp;this is the second string from the client
+&nbsp;&nbsp;SENDING:
+&nbsp;&nbsp;THIS IS THE SECOND STRING FROM THE CLIENT
+&nbsp;&nbsp;
+&nbsp;&nbsp;RECEIVED:
+&nbsp;&nbsp;this is the third string from the client
+&nbsp;&nbsp;SENDING:
+&nbsp;&nbsp;THIS IS THE THIRD STRING FROM THE CLIENT
+	  </PRE>
+	  And from the client process:
+	  <PRE>
+&nbsp;&nbsp;bash$ ./client 
+&nbsp;&nbsp;SENDING:
+&nbsp;&nbsp;this is the first string from the client
+&nbsp;&nbsp;RECEIVED:
+&nbsp;&nbsp;THIS IS THE FIRST STRING FROM THE CLIENT
+&nbsp;&nbsp;
+&nbsp;&nbsp;SENDING:
+&nbsp;&nbsp;this is the second string from the client
+&nbsp;&nbsp;RECEIVED:
+&nbsp;&nbsp;THIS IS THE SECOND STRING FROM THE CLIENT
+&nbsp;&nbsp;
+&nbsp;&nbsp;SENDING:
+&nbsp;&nbsp;this is the third string from the client
+&nbsp;&nbsp;RECEIVED:
+&nbsp;&nbsp;THIS IS THE THIRD STRING FROM THE CLIENT
+	  </PRE>
+	  <HR><BR>
+    After you have finished your implementation, you need to complete a short
+    report that answers the following questions:
+	  <OL type="2">
+    <LI>Briefly describe the design of the program. How does your program
+    control when the client runs and when the server runs?
+    <LI>What is the purpose of the handshake socket? Why not have the server
+    create and bind session sockets that clients may connect to directly?
+    <LI>For the simple / client server program, we chose to use sockets
+    instead of pipes to send messages between the client and server. Why are
+    sockets preferred over pipes for this program? Give at least two reasons. 
+    </OL> 
+
+    You also need to tar up your lab for submission. For this step, you should
+    use the 'tar' target included in the lab's Makefile. Change the STUDENT_ID
+    variable in the Makefile to your student ID and type:
+	  <PRE>
+    make tar
+	  </PRE>
+
+<!--
+	  For this lab, you will submit to me (via email) a tar file containing
+	  your lab directory. I should be able to build, run, and test your
+	  submission using the steps described above. Please name the tarfile
+	  appropriately (e.g. lastname-lab04.tar.gz) so I do not have to
+	  distinguish between several tar files with the same name. Consider using
+	  the <font face="arial">tar</font> target provided in the Makefile to
+	  build your tarfile.
+	  <BR><BR>
+	  You should also submit a short (less than 1 page) report describing how
+	  your implementation works at a high level. You should discuss how you
+	  implemented the simple client / server program. Briefly describe the
+	  purpose of each system call you used. Also, briefly discuss any troubles
+	  you had in writing and testing this program.
+-->

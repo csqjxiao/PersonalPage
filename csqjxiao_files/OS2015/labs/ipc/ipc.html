@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN"
+"http://www.w3.org/TR/html40/Strict.dtd">
+
+<HTML>
+
+  <HEAD>
+    <TITLE> Lab 3: The Shell, System Calls, and Basic Inter-Process Communication </TITLE>
+  </HEAD>
+
+<BODY>
+
+<TABLE width=750px cellpadding="10" cellspacing="10" border="0" bgcolor=white>
+  <TR align=left>
+    <TD height="40" bgcolor="#CCCCCC" valign=middle colspan=2>
+	  <font size="+2" color="black">&nbsp;&nbsp; <b> The Shell, System Calls, and Basic Inter-<BR>&nbsp;&nbsp;&nbsp;Process Communication </b></font>
+    </TD>
+  </TR>
+  <TR>
+    <TD colspan=2>
+      <FONT size="+1" color="black">
+	  In this lab, we write a small program to illustrate the use of multiple
+	  processes and pipes in a shell program. You will be required to submit
+	  the code you wrote and submit a short report answering a few questions.<BR>
+	  </FONT> 
+
+  <TR>
+    <TD height="40" bgcolor="#CCCCCC" valign=middle colspan=2>
+      <FONT size="5" face="helvetica" color="black">
+	LAB MATERIALS
+      </FONT>	  
+    </TD>
+  </TR>
+    <TD colspan=2>
+      <OL type="2">
+		<LI> 
+		<A href="IPCLab.pdf">Slides</A>
+		<LI>
+		<A href="eecs678-ipc-lab.tar.gz">Starter Directory</A>
+    </TD>
+  </TR>
+  <TR>
+    <TD height="40" bgcolor="#CCCCCC" valign=middle colspan=2>
+      <FONT size="5" face="helvetica" color="black">
+	LAB ASSIGNMENT
+      </FONT>	  
+	</TD>
+  </TR>
+    <TD colspan=2>
+	  Write a program to simulate how the shell interprets the command:
+	  <PRE>
+    find $1 -name '*'.[ch] | xargs grep -c $2 | sort -t : +1.0 -2.0 --numeric --reverse | head --lines=$3
+	  </PRE>
+	  This command will search through the directory given by the first argument
+    for files ending in .c or .h and return the N files (where N is the third
+    argument) which contain the most occurrences of the string given by the
+    second argument. You can use the lab's Makefile to run a bash script with
+    this command:
+	  <PRE>&nbsp;&nbsp;bash$ make find
+	  </PRE>
+	  You must use the <font face="arial">finder.c</font> file in this lab's
+	  starter directory as starter code for your program. When you are through,
+	  build your program using:
+	  <PRE>&nbsp;&nbsp;bash$ make build
+	  </PRE>
+	  Now, you should be able to run your program:
+	  <PRE>&nbsp;&nbsp;bash$ ./finder bash-4.2 execute 10
+	  </PRE>
+    When you have finished your implementation and are confident that it is
+    working correctly, use the command:
+	  <PRE>&nbsp;&nbsp;bash$ make test
+	  </PRE>
+    to test your <font face="arial">finder</font> executable. A correct
+    implementation will not return any errors.
+	  <BR><BR>
+	  <HR><BR>
+    After you have finished your implementation, you need to complete a short
+    report that answers the following questions:
+	  <OL type="2">
+    <LI>Briefly describe the design of the program. How many processes and how
+    many pipes are created with your solution? How does data flow from process
+    to process?
+    <LI>Did you have any problems writing or debugging this program? How did
+    you test and debug your solution?
+    <LI>When he was head of Bell Labs, Doug McIlroy summarized the "Unix
+    philosophy" as follows:
+    <pre>
+    Write programs that do one thing and do it well. Write programs to work
+    together. Write programs to handle text streams, because that is a
+    universal interface.
+    </pre>
+    How do pipes contribute to the Unix philosophy?  Also, do you think this
+    is a "good" philosophy for software engineering? Why or why not?
+    </OL> 
+    
+    You also need to tar up your lab for submission. For this step, you should
+    use the 'tar' target included in the lab's Makefile. Change the STUDENT_ID
+    variable in the Makefile to your student ID and type:
+	  <PRE>
+    make tar
+	  </PRE>
+
+  <TR>
+    <TD height="40" bgcolor="#CCCCCC" valign=middle colspan=2>
+      <FONT size="5" face="helvetica" color="black">
+	pipe.c
+      </FONT>	  
+	</TD>
+  </TR>
+    <TD colspan=2>
+	  There is another source file (<font face="arial">pipe.c</font>) included
+	  in this lab's starter directory. This file is starter code for a simpler
+	  program which forks two processes. The first process reads a file and
+	  prints its contents to stdout. The second process reads from stdin and
+	  writes what it reads to stdout. The purpose of this file is to provide a
+	  simpler framework that can be used for learning how to use pipes. I
+	  recommend modifying this program to have the first process write the
+	  file's contents to a pipe (as opposed to stdout) and the second process
+	  to read from this pipe (as opposed to stdin). Inside the <font
+		face="arial">pipe.c</font> file, there are comments with the string
+	  <b>XXX</b> wherever you would need to make a modification to complete
+	  this change. 
+	  <br><br> This part of the lab is <b>only a recommendation</b> and is not
+	  required in your submission.
+

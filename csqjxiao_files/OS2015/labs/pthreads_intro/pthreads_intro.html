@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN"
+"http://www.w3.org/TR/html40/Strict.dtd">
+
+<HTML>
+
+  <HEAD>
+    <TITLE> Lab 5: Introduction to PThreads </TITLE>
+  </HEAD>
+
+<BODY>
+
+<TABLE width=750px cellpadding="10" cellspacing="10" border="0" bgcolor=white>
+  <TR align=left>
+    <TD height="40" bgcolor="#CCCCCC" valign=middle colspan=2>
+	  <font size="+2" color="black">&nbsp;&nbsp; <b> Introduction to PThreads </b></font>
+    </TD>
+  </TR>
+  <TR>
+    <TD colspan=2>
+      <FONT size="+1" color="black">
+	  This lab introduces basic synchronization concepts through the use of
+	  PThreads. We discuss basic usage of PThreads (creating, destroying,
+    waiting on) and also illustrate (and debug) a simple race condition.
+	  <BR></FONT> 
+
+  <TR>
+    <TD height="40" bgcolor="#CCCCCC" valign=middle colspan=2>
+      <FONT size="5" face="helvetica" color="black">
+	LAB MATERIALS
+      </FONT>	  
+    </TD>
+  </TR>
+    <TD colspan=2>
+      <OL type="2">
+		<LI> 
+		<A href="PThreadsIntro.pdf">Slides</A>
+		<LI>
+		<A href="eecs678-pthreads_intro-lab.tar.gz">Starter Directory</A>
+    </TD>
+  </TR>
+  <TR>
+    <TD height="40" bgcolor="#CCCCCC" valign=middle colspan=2>
+      <FONT size="5" face="helvetica" color="black">
+	LAB ASSIGNMENT
+      </FONT>	  
+	</TD>
+  </TR>
+    <TD colspan=2>
+    You need to complete the implementation of <font
+    face="arial">ptcount.c</font>.  When you are finished, the main process of
+    <font face="arial">ptcount</font> should create three pthreads and wait for
+    these pthreads to complete execution.  Each thread should increment (in a
+    loop) a shared variable named <font face="arial">count</font> as well as a
+    local counter.  When the child threads are finished executing, the main
+    thread should print out the value of <font face="arial">count</font>.  The
+    value reported by the main process should be consistent with what you would
+    expect with the given loop bound and increment values. Your program should
+    match the following output:
+<PRE>
+&nbsp;&nbsp;bash$ make test
+&nbsp;&nbsp;./ptcount 100000 1
+&nbsp;&nbsp;Thread: 0 finished. Counted: 100000
+&nbsp;&nbsp;Thread: 1 finished. Counted: 100000
+&nbsp;&nbsp;Thread: 2 finished. Counted: 100000
+&nbsp;&nbsp;Main(): Waited on 3 threads. Final value of count = 300000. Done.
+</PRE>
+	  <HR><BR>
+    After you have finished your implementation, you need to complete a short
+    report that answers the following questions:
+	  <OL type="2">
+
+    <LI>What accounts for the inconsistency of the final value of the <font
+    face="arial">count</font> variable compared to the sum of the local counts
+    for each thread in the version of your program that has no lock/unlock
+    calls?
+    <LI>If you test the version of your program that has no lock/unlock
+    operations with a smaller loop bound, there is often no inconsistency in
+    the final value of <font face="arial">count</font> compared to when you
+    use a larger loop bound. Why?
+    <LI>Why are the local variables that are printed out always consistent?
+    <LI>How does your solution ensure the final value of <font
+    face="arial">count</font> will always be consistent (with any loop bound
+    and increment values)?
+    <LI>Consider the two versions of your ptcount.c code. One with the lock and
+    unlock operations, and one without. Run both with a loop count of 1
+    million, using the <em>time</em> time command: "bash&gt time ./ptcount
+    1000000 1". Real time is total time, User time is time spent in User Mode.
+    SYS time is time spent in OS mode. User and SYS time will not add up to
+    Real for various reasons that need not concern you at this time. Why do you
+    think the times for the two versions of the program are so different?
+	  </OL>
+
+    You also need to tar up your lab for submission. For this step, you should
+    use the 'tar' target included in the lab's Makefile. Change the STUDENT_ID
+    variable in the Makefile to your student ID and type:
+	  <PRE>
+    make tar
+	  </PRE>
+

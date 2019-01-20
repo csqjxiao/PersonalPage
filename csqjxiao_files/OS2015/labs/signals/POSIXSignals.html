@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN"
+"http://www.w3.org/TR/html40/Strict.dtd">
+
+<HTML>
+
+  <HEAD>
+    <TITLE> Lab 9: POSIX Signals </TITLE>
+  </HEAD>
+
+<BODY>
+
+<TABLE width=750px cellpadding="10" cellspacing="10" border="0" bgcolor=white>
+  <TR align=left>
+    <TD height="40" bgcolor="#CCCCCC" valign=middle colspan=2>
+	  <font size="+2" color="black">&nbsp;&nbsp; <b> POSIX Signals</b></font>
+    </TD>
+  </TR>
+  <TR>
+    <TD colspan=2>
+      <FONT size="+1" color="black">
+      <p>
+	In this lab, we will learn about using POSIX (Unix)
+	signals. The POSIX standard for signals, as with most of its
+	components was based on UNIX semantics, but generalized to
+	avoid explicitly endorsing one version of UNIX or another. The
+	POSIX standard for signals and other aspects of system support
+	are often supported by other operating systems. As with the
+	other labs in this class we will experiment with signals in
+	the context of Linux. We will also construct a small program
+	which associates signal handlers with a few signals to give
+	more interesting functionality to the starter code provided.
+      </p>
+
+      <p>
+	In this lab we will ensure you see how signals are used by
+	BASH to support job control, which is an interesting feature,
+	if slightly less widely used than it was a number of years
+	ago. We will also look at a simple user program and change it
+	in ways demonstrating:
+	<ul>
+	  <li> Definition of signal handlers </li>
+	  <li> Association of handlers and signals </li>
+	  <li> Use of system calls related to signals: alarm(), pause() </li>
+	</ul>
+   </FONT> 
+
+  <TR>
+    <TD height="40" bgcolor="#CCCCCC" valign=middle colspan=2>
+      <FONT size="5" face="helvetica" color="black">
+	LAB MATERIALS
+      </FONT>	  
+    </TD>
+  </TR>
+    <TD colspan=2>
+      <OL type="2">
+		<LI> 
+		<A href="POSIXSignals.pdf">Slides</A>
+		<LI>
+		<A href="eecs678-signals-lab.tar.gz">Starter Directory</A>
+    </TD>
+  </TR>
+  <TR>
+    <TD height="40" bgcolor="#CCCCCC" valign=middle colspan=2>
+      <FONT size="5" face="helvetica" color="black">
+	LAB ASSIGNMENT
+      </FONT>	  
+	</TD>
+  </TR>
+    <TD colspan=2>
+      <p> 
+	For this lab, you need to complete the implementation of the
+	<string>signals.c</string> program.  This program should count
+	the number of times the user has sent the SIGINT signal to the
+	running process. Pressing Ctl-C from the keyboard send this signal.
+	When the process receives the SIGTSTP signal (Ctl-Z), it should
+	print to the terminal the number of SIGINT signals it has
+	received. After it receives 5 SIGINT signals, the program should
+	prompt the user to exit. If the user does not respond within
+	10 seconds, an SIGALRM signal should force the program to exit.
+      </p>
+
+      <p> 
+	The TA should be able to build the program using the Makefile
+	submitted with your solution. An example output of running
+	signals is shown below:
+      </p>
+
+      <pre>
+	bash> ./signals 
+	^C^C^C^C^C
+	Really exit? [Y/n]: n
+
+	Continuing
+	^C^C^C^Z
+
+	So far, '3' Ctl-C presses were counted
+
+	^C^Z
+
+	So far, '4' Ctl-C presses were counted
+
+	^C
+	Really exit? [Y/n]: n
+
+	Continuing
+	^C^C^C^C^C
+	Really exit? [Y/n]: 
+	User taking too long to respond. Exiting  . . .
+      </pre>
+  <TR>
+    <TD height="40" bgcolor="#CCCCCC" valign=middle colspan=2>
+      <FONT size="5" face="helvetica" color="black">
+  WHAT TO HAND IN
+      </FONT>
+	</TD>
+  </TR>
+    <TD colspan=2>
+      <p>
+    After you have finished your implementation, you need to complete a short
+    report that answers the following questions:
+      </p>
+      <ol> 
+	  <li> 
+	    There are two special signals (KILL and STOP) which are
+	    not handled by the process they are sent to. When a KILL
+	    or STOP signal is generated, the operating system itself
+	    handles this signal and kills or stops the appropriate
+	    process. Considering what you learned in today's lab,
+	    speculate as to why the system designers chose to include
+	    signals which are handled solely by the operating system.
+	  </li>
+
+	  <li> 
+	    What benefit do we gain from using the pause system
+	    call as opposed to an infinite while loop?
+	  </li>
+
+	  <li>
+	    Why do we mask other signals while inside the signal handler?
+	  </li>
+
+	  <li>
+	    When we implement the time out, we do not mask the SIGALRM signal. Why?
+	  </li>
+      </ol>
+
+    You also need to tar up your lab for submission. For this step, you should
+    use the 'tar' target included in the lab's Makefile. Change the STUDENT_ID
+    variable in the Makefile to your student ID and type:
+	  <PRE>
+    make tar
+	  </PRE>
+
