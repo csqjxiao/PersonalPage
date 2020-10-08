@@ -304,12 +304,12 @@ set zlabel "Z axis" 0.000000,0.000000  font ""
 splot [x=-3:3] [y=-3:3] sin(x) * cos(y)
 
 \begin{figure*}[!t] 
-\centerline{% 
-\subfigure[Case I]{\input{tic.tex}% 
+\centerline{
+\subfigure[Case I]{\input{tic.tex
 \label{fig_first_case}} 
 \hfil 
-\subfigure[Case II]{\input{plot3d.tex}% 
-\label{fig_second_case}}% 
+\subfigure[Case II]{\input{plot3d.tex}
+\label{fig_second_case}}
 } 
 \caption{Simulation results} 
 \label{fig_sim} 
