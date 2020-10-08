@@ -431,7 +431,7 @@ pdflatex %texfilename%
 \usepackage[square,comma,sort,numbers]{natbib} % numerical citation style
 ```
 
-正文里使用`\cite{%label1%,%label2%,%label3%}`命令或者`\citep{%label1%,%label2%,%label3%}`命令（for natbib）。
+正文里使用`\cite{label1,label2,label3}`命令或者`\citep{label1,label2,label3}`命令（for natbib）。
 新手注意：Reference list里面只会显示那些正文里面引用了的那些文章。如果正文没有\cite，别怪bibtex报错。另外，对图片、表格、公式的引用是\ref命令，别搞混了。
 参考：[http://latex.yo2.cn/articles/latex-bibtex-introduction.html](http://latex.yo2.cn/articles/latex-bibtex-introduction.html)
 
