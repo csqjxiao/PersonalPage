@@ -325,14 +325,14 @@ Windows XP SP2
 CTeX-2.4.6-Full 
 Perl编译器：ActivePerl 5.10.0.1003 for Windows (x86). [http://www.activestate.com/Products/Downlo...x?id=ActivePerl](http://www.activestate.com/products/Downlo...x?id=Activeperl)
 NetPBM 图形软件(CTeX-2.4.6-Ful l没有安装) ：现在网上很难找到合适的版本(据说1.2是work的)．用TtH还是比Latex2html简单一点． 
-Postscript 解释器： CTeX-2.4.6-Full 已安装好了Ghostscript，在目录C:\CTeX\Ghostgum\下。
+Postscript 解释器： CTeX-2.4.6-Full 已安装好了Ghostscript，在目录`C:\CTeX\Ghostgum\`下。
 注册序列码如下。Name: Registered s/n: 195938022 5598
 其余的安装参考：http://bbs.ctex.org/redirect.php?fid=7&tid=43334&goto=nextnewset
 
 Tex4ht在CTex中的配置，参考 http://xaero.mmiyy.cn/notes/latex/tex4ht.htm
 
-1. 把C:\CTeX\WinEdt\Bin\TeX\TtH.bat改名为TtH.bat.bak
-2. 把C:\CTeX\...\htlatex.bat（具体路径在C:\CTex下面search一下，不同CTex版本不同）复制到C:\CTeX\WinEdt\Bin\TeX\下，改名为TtH.bat，则Accessories/HTML/TtH(Tex—>HTML)菜单变得可用。
+1. 把`C:\CTeX\WinEdt\Bin\TeX\TtH.bat`改名为TtH.bat.bak
+2. 把`C:\CTeX\...\htlatex.bat`（具体路径在`C:\CTex`下面search一下，不同CTex版本不同）复制到`C:\CTeX\WinEdt\Bin\TeX\`下，改名为TtH.bat，则`Accessories/HTML/TtH (Tex—>HTML)`菜单变得可用。
 
 **Tex4ht中数学公式的转换**
 
@@ -376,10 +376,27 @@ Slides和Presentation的重要性就不必说了。
 1. 下载beamer：http://sourceforge.net/projects/latex-beamer/
    下载pgf：http://sourceforge.net/projects/pgf/ 
    下载xcolor：http://sourceforge.net/projects/xcolor/
+   
 2. 解压到各自文件夹beamer、pgf、xcolor
-3. 将beamer、pgf、xcolor复制到TeXHOME\ctex\localtextmf\tex\latex，并删除 TeXHOME/texmf/tex/latex/ 下的beamer、pgf、xcolor
-4. 进入TeXHOME\tex\localtextmf\tex\latex\xcolor，用“记事本”打开 xcolor.ins，启动cmd，定位到这个文件夹运行命令： `latex xcolor.ins'，`latex xcolor.dtx'，`latex xcolor.dtx'，`makeindex -s gind.ist xcolor.idx'，`latex xcolor.dtx'，`latex xcolor.dtx'(这些命令在xcolor.ins文件里都写出来了)
-5. 测试安装是否成功，运行命令：`latex xcolor1.tex'， `latex xcolor1.tex'
+
+3. 将beamer、pgf、xcolor复制到`TeXHOME\ctex\localtextmf\tex\latex`，并删除 `TeXHOME/texmf/tex/latex/` 下的beamer、pgf、xcolor
+
+4. 进入TeXHOME\tex\localtextmf\tex\latex\xcolor，用“记事本”打开 xcolor.ins，启动cmd，定位到这个文件夹运行命令：
+
+   ```
+   latex xcolor.ins
+   latex xcolor.dtx
+   latex xcolor.dtx
+   makeindex -s gind.ist xcolor.idx
+   latex xcolor.dtx
+   latex xcolor.dtx
+   ```
+
+
+   (这些命令在xcolor.ins文件里都写出来了)
+
+5. 测试安装是否成功，运行命令：`latex xcolor1.tex`， `latex xcolor1.tex`
+
 6. 然后运行 WinEdt 的 Accessories 菜单下 MikTex options 的 refresh now 即可。
 
 注意事项： 当beamer做幻灯片时，需要使用 \usepackage[square, authoryear, comma]{natbib} 和 \citep{xxx} 做文章引用。因为用 natbib 和 citep 才能在beamer下很好的显示 square bracket。另外，做幻灯时，推荐用 \bibliographystyle{authordate1}。这样方便通过引用标记（作者+年份）看到该引文的分量。
@@ -404,7 +421,7 @@ pdflatex %texfilename%
 
 参考链接 http://bbs.ctex.org/viewthread.php?action=printable&tid=950
 
-在正文里面引用时，IEEE模板需要引用cite package或者natbib package(推荐)。具体参考IEEEtranBST_howto
+在正文里面引用时，IEEE模板需要引用cite package或者natbib package (推荐)。具体参考IEEEtranBST_howto
 
 ```latex
 \usepackage[nocompress]{cite} 
@@ -414,7 +431,7 @@ pdflatex %texfilename%
 \usepackage[square,comma,sort,numbers]{natbib} % numerical citation style
 ```
 
-正文里使用\cite{%label1%,%label2%,%label3%}命令或者\citep{%label1%,%label2%,%label3%}命令（for natbib）。
+正文里使用`\cite{%label1%,%label2%,%label3%}`命令或者`\citep{%label1%,%label2%,%label3%}`命令（for natbib）。
 新手注意：Reference list里面只会显示那些正文里面引用了的那些文章。如果正文没有\cite，别怪bibtex报错。另外，对图片、表格、公式的引用是\ref命令，别搞混了。
 参考：[http://latex.yo2.cn/articles/latex-bibtex-introduction.html](http://latex.yo2.cn/articles/latex-bibtex-introduction.html)
 
