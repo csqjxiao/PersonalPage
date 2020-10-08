@@ -1,4 +1,6 @@
-# Latex**相关资源汇总**
+# Latex相关资源汇总
+
+Qingjun Xiao @ Southeast University
 
 [TOC]
 
@@ -220,7 +222,7 @@ set(gca,'FontSize',20);
 Origin画的数据图比Matlab好看些，但有时也感觉Origin太艳丽了，不那么正统。也还推荐gnuPlot。
 
 Making Pretty Graphs by MATLAB: http://blogs.mathworks.com/loren/2007/12/11/making-pretty-graphs/
-[![img](http://s10.sinaimg.cn/middle/6cec1179g76c8762529a9&690)](http://blog.photo.sina.com.cn/showpic.html#url=http://s10.sinaimg.cn/orignal/6cec1179g76c8762529a9)
+![](https://blogs.mathworks.com/images/loren/118/finalPlot2.png)
 
 ### GnuPlot的安装和使用
 
@@ -731,7 +733,7 @@ Latex里面的长度单位有：
 
 使用marvosym 宏包
 演示： 
-![5e16f177h7ac3d2265ca4&690](http://s8.sinaimg.cn/middle/6cec117949f5dda6d2237&amp;690) 
+![](./marvosym-demo.png)
 代码：
 
 ```latex
