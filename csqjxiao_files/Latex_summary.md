@@ -508,9 +508,9 @@ amsthm还定义了proof环境，最后会自动加一个QED符号。很方便吧
 5. 对Figure、Equation、Table的引用时,要加"~"，比如
 
 ```latex
-\figurename~\ref{%label%} 
-\tablename~\ref{%label%} 
-\equationname~\ref{%label%}
+\figurename~\ref{label} 
+\tablename~\ref{label} 
+\equationname~\ref{label}
 ```
 
 **我的系统crash，论文稿件都丢了，怎么办？**
