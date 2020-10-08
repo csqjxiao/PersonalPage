@@ -156,16 +156,17 @@ MetaPost适合几何图形绘制，有强大的递归执行能力，比如下面
 
 ### PGF/TikZ
 
-**1. 什么是pgf？
-**pgf是一个在tex系统中的画图宏包，tex尤其是beamer中使用pgf作图，“作精确图还比较方便, 色彩锐丽”（huangzh73）。除了可以精确的作图外，对于某些不要求精确控制的图形绘制，如：流程图，树图，等等，也提供了简便易用的支持。
+1. 什么是pgf？
 
-**2. pgf的作者？
-**pgf也是beamer 的作者 Till Tantau 教授开发的. 起初只有 pgf, 后来有了 tikz and pgf 宏包的说法, 一般还是称为 pgf 宏包. 在使用中 \usepackage{tikz} 就自动加入了 pgf. 也许 tikz 可以认为是 pgf 进一步发展的产物.正因为两者出自同一个牛人之手，所以beamer和pgf结合使用确实非常的完美。
+   pgf是一个在tex系统中的画图宏包，tex尤其是beamer中使用pgf作图，“作精确图还比较方便, 色彩锐丽”（huangzh73）。除了可以精确的作图外，对于某些不要求精确控制的图形绘制，如：流程图，树图，等等，也提供了简便易用的支持。
 
-**3.安装和更新的方法: 
-**pgf在ctex下的安装可参考beamer的安装。它们的关系差不多是beamer requires pgf，pgf requires xcolor。
+2. pgf的作者？
+   pgf也是beamer 的作者 Till Tantau 教授开发的. 起初只有 pgf, 后来有了 tikz and pgf 宏包的说法, 一般还是称为 pgf 宏包. 在使用中 \usepackage{tikz} 就自动加入了 pgf. 也许 tikz 可以认为是 pgf 进一步发展的产物.正因为两者出自同一个牛人之手，所以beamer和pgf结合使用确实非常的完美。
 
-**4.下面是一些展示pgf绘图效果的图库**
+3. 安装和更新的方法: 
+   pgf在ctex下的安装可参考beamer的安装。它们的关系差不多是beamer requires pgf，pgf requires xcolor。
+
+4. 下面是一些展示pgf绘图效果的图库
 
 - PGF and TikZ examples gallery： 
   http://www.fauskes.net/pgftikzexamples/
@@ -174,7 +175,7 @@ MetaPost适合几何图形绘制，有强大的递归执行能力，比如下面
 - Edward Tufte’s book Beautiful evidence: 
   http://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0001TV&topic_id=1
 
-**5.下面是一些自己用过的例子**
+5. 下面是一些自己用过的例子
 
 - 数据流图：http://www.fauskes.net/pgftikzexamples/simple-flow-chart/
 - 基于数据流的系统架构图：http://www.fauskes.net/pgftikzexamples/inertial-navigation-system/
@@ -226,15 +227,15 @@ Making Pretty Graphs by MATLAB: http://blogs.mathworks.com/loren/2007/12/11/maki
 个人感觉GnuPlot做出来的图没有Pgf和Origin的效果好。
 推荐资料： Plotting with GnuPlot:  http://f3wm.free.fr/linux/gnuplot.html
 
-\1. Windows下的安装
-安装很简单。在 http://www.gnuplot.info/ 下载安装包gp424win32.zip. 解压后找到bin/wgnuplot.exe，双击运行即可。测试一下安装。运行命令：
+1. Windows下的安装
+   安装很简单。在 http://www.gnuplot.info/ 下载安装包gp424win32.zip. 解压后找到bin/wgnuplot.exe，双击运行即可。测试一下安装。运行命令：
 
 ```
 gnuplot> plot [-3.14:3.14] sin(x)
 ```
 
-\2. 和Latex的整合
-gnuplot提供了直接输出tex文件的功能，只需要把output设置为latex就可以了。在命令行下输入：
+2. 和Latex的整合
+   gnuplot提供了直接输出tex文件的功能，只需要把output设置为latex就可以了。在命令行下输入：
 
 ```gnuplot
 set terminal latex
@@ -252,7 +253,7 @@ plot [-3.14:3.14] sin(x)
 \end{figure}
 ```
 
-\3. 生成xy axis和label
+3. 生成xy axis和label
 
 ```gnuplot
 set terminal latex    
@@ -265,7 +266,7 @@ set ylabel "This is the $y$ axis" #设置y轴的文字
 plot [0:6.28] [0:1] sin(x)
 ```
 
-\4. 多条曲线的对比
+4. 多条曲线的对比
 
 ```
 set terminal latex 
@@ -278,7 +279,7 @@ set ylabel "$y$ axis"
 plot [-3.14:3.14] 0.2*x with points, sin(x) with lines
 ```
 
-\5. 一个3d作图和并列子图显示的例子
+5. 一个3d作图和并列子图显示的例子
 
 ```latex
 set terminal latex 
@@ -329,8 +330,9 @@ Postscript 解释器： CTeX-2.4.6-Full 已安装好了Ghostscript，在目录C:
 其余的安装参考：http://bbs.ctex.org/redirect.php?fid=7&tid=43334&goto=nextnewset
 
 Tex4ht在CTex中的配置，参考 http://xaero.mmiyy.cn/notes/latex/tex4ht.htm
-\1. 把C:\CTeX\WinEdt\Bin\TeX\TtH.bat改名为TtH.bat.bak
-\2. 把C:\CTeX\...\htlatex.bat（具体路径在C:\CTex下面search一下，不同CTex版本不同）复制到C:\CTeX\WinEdt\Bin\TeX\下，改名为TtH.bat，则Accessories/HTML/TtH(Tex—>HTML)菜单变得可用。
+
+1. 把C:\CTeX\WinEdt\Bin\TeX\TtH.bat改名为TtH.bat.bak
+2. 把C:\CTeX\...\htlatex.bat（具体路径在C:\CTex下面search一下，不同CTex版本不同）复制到C:\CTeX\WinEdt\Bin\TeX\下，改名为TtH.bat，则Accessories/HTML/TtH(Tex—>HTML)菜单变得可用。
 
 **Tex4ht中数学公式的转换**
 
@@ -515,7 +517,8 @@ WinCVS的使用参考 http://203.68.102.46/online_book/content.php?chapter_sn=22
 **如何在pdf文档中生成目录书签？**
 
 目的：在Latex生成的pdf文档中建立超链接(如从正文到参考文献，从目录到相应内容，从页码编号到实际页面等)，有利于读者快速定位当前阅读的信息。
-\1. 先引入以下宏包
+
+1. 先引入以下宏包
 
 ```latex
 \usepackage{lineno} 
@@ -523,14 +526,14 @@ WinCVS的使用参考 http://203.68.102.46/online_book/content.php?chapter_sn=22
 \usepackage[pdfborder={0 0 0}]{hyperref} 
 ```
 
-\2. 在正文中分清楚章节
+2. 在正文中分清楚章节
 
 ```latex
 \section{}  
 \subsection{}
 ```
 
-\3. 使用pdflatex编译
+3. 使用pdflatex编译
 
 引用：http://blog.sina.com.cn/s/blog_5e16f1770100fkcz.html
 
@@ -707,8 +710,7 @@ Latex里面的长度单位有：
 
 当换行时，\hspace｛xx｝产生的空格会被取消，如果要强制指定产生水平空格，用\hspace*。同理，当换页时，\vspace{xx}产生的空行也会被取消，强制指定用\vspace*。
 
-***\*Latex 里面如何打印如下常用符号？ 
-\****
+**Latex 里面如何打印如下常用符号？** 
 
 使用marvosym 宏包
 演示： 
@@ -737,10 +739,17 @@ Latex里面的长度单位有：
 **pdf文件里面如何嵌入字体？**
 
 主要IEEE会议在提交论文的时候，都强制要求嵌入字体。在Windows环境下，可以利用pdf printer。在Linux环境下可以采用如下办法：
-\1. Convert your PDF file to PS file
- $ pdftops mypaper.pdf
 
-\2. Convert back ps file to pdf using "prepress" settings
-  $ ps2pdf14 -dPDFSETTINGS=/prepress mypaper.ps
+1. Convert your PDF file to PS file
+
+   ```
+   pdftops mypaper.pdf
+   ```
+
+2. Convert back ps file to pdf using "prepress" settings
+
+   ```
+   ps2pdf14 -dPDFSETTINGS=/prepress mypaper.ps
+   ```
 
 http://kailaspatil.blogspot.com/2011/03/embed-fonts-in-pdf-file-using-pdflatex.html
